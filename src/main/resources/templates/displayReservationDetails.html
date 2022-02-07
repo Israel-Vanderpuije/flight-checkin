@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Details</title>
+</head>
+<body>
+<h2>Flight Details</h2>
+Airlines: <td th:text="${reservation.flight.operatingAirlines}"></td><br>
+Flight Number: <td th:text="${reservation.flight.flightNumber}"></td><br>
+Departure City: <td th:text="${reservation.flight.departureCity}"></td><br>
+Arrival City: <td th:text="${reservation.flight.arrivalCity}"></td><br>
+Date of Departure: <td th:text="${reservation.flight.dateOfDeparture}"></td><br>
+Estimated Departure Time: <td th:text="${reservation.flight.estimatedDepartureTime}"></td><br>
+
+<h2>Passenger Details</h2>
+First Name: <td th:text="${reservation.passenger.firstname}"></td><br>
+Last Name: <td th:text="${reservation.passenger.lastname}"></td><br>
+Email: <td th:text="${reservation.passenger.email}"></td><br>
+Phone: <td th:text="${reservation.passenger.phone}"></td><br>
+
+<form action="completeCheckIn" method="post">
+    Enter the number of Bags to check in: <input type="text" name="numberOfBags">
+    <input type="hidden" value="${reservation.id}">
+    <input type="submit" value="Check In">
+
+</form>
+
+</body>
+</html>
